@@ -1,25 +1,5 @@
-const assertEqual = (actual, expected) =>
-  (actual[0] === expected) // needs to identify the index if true
-    ? console.log(`✅✅✅ Assertion Passed: ${actual} ===  ${expected}`)
-    : console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) return false;
-  for (let i = 0; i < arr1.length; i++) if (arr1[i] !== arr2[i]) return false;
-  return true;
-};
-
-
-const assertArraysEqual = function(arr1, arr2) {
-  let assert = true;
-  if (arr1.length !== arr2.length) assert = false;
-  for(let i = 0; i < arr1.length; i++)
-  if(arr1[i] != arr2[i]) assert = false;
-  assert
-    ? console.log(`✅✅✅ Assertion Passed: These are equal.`)
-    : console.log(`🛑🛑🛑 Assertion Failed: These are not equal.`);
-// only cares about length
-};
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
  
 const middle = function (arr) {
@@ -49,10 +29,4 @@ const middle = function (arr) {
 
 
 
-assertEqual(middle([5, 6, 7]), 6);
-
-// console.log(typeof([5, 6, 7]));
-assertEqual((["Hello", "Lighthouse", "Labs"]), "Lighthouse");
-
-assertArraysEqual(middle([6, 5, 7]), [5]);
-assertArraysEqual(middle(["Each", "Word", "Has"]),["Word"]);
+module.exports = middle;
